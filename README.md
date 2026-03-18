@@ -17,7 +17,7 @@ https://api.pocket.network, backed by thousands of independently operated nodes.
 
 ## Installation
 
-1. Download `BlockchainQuery.mcpb` from [Releases](https://github.com/pokt-network/blockchain-query-mcp/releases)
+1. Download `BlockchainQuery.mcpb` from [here](https://github.com/pokt-network/blockchain-query-mcp/releases/latest/download/BlockchainQuery.mcpb)
 2. Double-click to open with Claude Desktop
 3. Click "Install"
 
@@ -26,7 +26,7 @@ That's it. No terminal, no configuration, no dependencies.
 ## Updating
 
 1. Uninstall the current version from Claude Desktop
-2. Download the latest `BlockchainQuery.mcpb` from [Releases](https://github.com/pokt-network/blockchain-query-mcp/releases)
+2. Download the latest `BlockchainQuery.mcpb` from [here](https://github.com/pokt-network/blockchain-query-mcp/releases/latest/download/BlockchainQuery.mcpb)
 3. Double-click to install the new version
 
 ## Supported Chains
