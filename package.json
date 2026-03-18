@@ -9,7 +9,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "tsc --noEmit",
-    "pack": "npx @anthropic-ai/mcpb pack"
+    "pack": "npx @anthropic-ai/mcpb pack",
+    "badges": "tsx scripts/update-badges.ts"
   },
   "author": "Pocket Network Foundation (https://pocket.network)",
   "license": "MIT",

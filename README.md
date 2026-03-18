@@ -2,8 +2,8 @@
 
 > Free live blockchain data access for Claude — powered by [Pocket Network](https://pocket.network)
 
-![63 Chains](https://img.shields.io/badge/chains-63-025af2?style=flat-square&labelColor=f6f6f6)
-![7 Protocols](https://img.shields.io/badge/protocols-7-025af2?style=flat-square&labelColor=f6f6f6)
+![62 Chains](https://img.shields.io/badge/chains-62-025af2?style=flat-square&labelColor=f6f6f6)
+![6 Protocols](https://img.shields.io/badge/protocols-6-025af2?style=flat-square&labelColor=f6f6f6)
 ![MIT License](https://img.shields.io/badge/license-MIT-025af2?style=flat-square&labelColor=f6f6f6)
 
 ## What is BlockchainQuery?
