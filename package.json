@@ -1,6 +1,6 @@
 {
   "name": "blockchain-query",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Free blockchain data access across 60+ networks via Pocket Network",
   "type": "module",
   "main": "dist/server/index.js",
