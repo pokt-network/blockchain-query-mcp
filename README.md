@@ -135,6 +135,28 @@ As a non-profit public good, Pocket provides free RPC access to anyone.
 
 Learn more at [pocket.network](https://pocket.network)
 
+## Privacy Policy
+
+BlockchainQuery runs entirely on your local machine. It does not collect, store,
+or transmit any personal data, usage analytics, or telemetry.
+
+When you make a query, your request is sent directly from your machine to Pocket
+Network's public RPC gateway (api.pocket.network), which routes it to the
+appropriate blockchain endpoint. Pocket Network does not require authentication
+for these requests and does not associate queries with individual users.
+
+For complete privacy information, see our full privacy policy:
+https://pocket.network/blockchainquery-privacy
+
+**Data Summary**
+
+- **Personal data collected by the extension:** None
+- **Authentication required:** None
+- **Analytics or telemetry:** None
+- **Third-party data sharing:** None
+- **Network requests made:** RPC queries to api.pocket.network; chain registry fetched from GitHub at startup
+- **Data stored on your device:** Cached chain registry only (no persistent user data)
+
 ## License
 
 MIT — Pocket Network Foundation

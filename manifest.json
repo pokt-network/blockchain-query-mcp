@@ -1,5 +1,8 @@
 {
-  "manifest_version": "0.2",
+  "manifest_version": "0.3",
+  "privacy_policies": [
+    "https://pocket.network/blockchainquery-privacy"
+  ],
   "name": "blockchain-query",
   "display_name": "BlockchainQuery",
   "version": "2.1.0",
