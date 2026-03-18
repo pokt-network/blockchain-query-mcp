@@ -43,6 +43,9 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: update README badges from live chain registry"
           git push origin main
 
+      - name: Build
+        run: npm run build
+
       - name: Pack MCPB
         run: npm run pack
 
