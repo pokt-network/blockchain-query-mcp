@@ -1,0 +1,93 @@
+{
+  "mcpb_version": "0.1",
+  "name": "blockchain-query",
+  "display_name": "BlockchainQuery",
+  "version": "2.0.0",
+  "description": "Free blockchain data access across 60+ networks. Live lookups for balances, transactions, blocks, tokens, staking, governance, and domain resolution — powered by Pocket Network's decentralized RPC infrastructure. No API key required.",
+  "long_description": "BlockchainQuery gives Claude real-time access to blockchain data across 60+ networks through Pocket Network's decentralized RPC gateway. Query balances, transactions, blocks, smart contracts, token metadata, staking positions, governance proposals, and domain resolution — all without API keys or authentication.\n\nSupported protocols: EVM (Ethereum, Arbitrum, Base, Polygon, Optimism, and 35+ more), Solana, Cosmos (Osmosis, Pocket, Akash, and 10+ more), Sui, Near, and Tron.\n\nProvided as a free public good by the Pocket Network Foundation.",
+  "author": {
+    "name": "Pocket Network Foundation",
+    "email": "build@pokt.foundation",
+    "url": "https://pocket.network"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pokt-network/blockchain-query-mcp"
+  },
+  "homepage": "https://api.pocket.network",
+  "documentation": "https://github.com/pokt-network/blockchain-query-mcp#readme",
+  "support": "https://github.com/pokt-network/blockchain-query-mcp/issues",
+  "icon": "icon.png",
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": {
+        "POCKET_API_BASE": "https://api.pocket.network",
+        "CHAIN_REGISTRY_URL": "",
+        "ENABLE_LIVENESS_PROBES": "true"
+      }
+    }
+  },
+  "tools": [
+    { "name": "list_chains", "description": "List supported blockchain networks, with optional protocol or network filter" },
+    { "name": "get_chain_info", "description": "Get RPC URL, protocol type, supported methods, and status for a specific chain" },
+    { "name": "evm_call", "description": "Execute a JSON-RPC call on any EVM-compatible blockchain" },
+    { "name": "evm_get_balance", "description": "Get native token balance for an address on any EVM chain" },
+    { "name": "evm_get_block", "description": "Get block details by number or hash from any EVM chain" },
+    { "name": "evm_get_transaction", "description": "Get transaction details by hash from any EVM chain" },
+    { "name": "evm_get_receipt", "description": "Get transaction receipt including logs, status, and gas used" },
+    { "name": "evm_get_logs", "description": "Search event logs on any EVM chain with block range safety limits" },
+    { "name": "evm_estimate_gas", "description": "Estimate gas cost for a transaction on any EVM chain" },
+    { "name": "evm_get_token_info", "description": "Get ERC-20 token balance, name, symbol, decimals, and total supply" },
+    { "name": "evm_call_contract", "description": "Execute a read-only smart contract function call" },
+    { "name": "solana_get_balance", "description": "Get SOL or SPL token balance for a Solana address" },
+    { "name": "solana_get_account", "description": "Get Solana account information including owner, lamports, and data" },
+    { "name": "solana_get_block", "description": "Get Solana block details by slot number" },
+    { "name": "solana_get_transaction", "description": "Get Solana transaction details by signature" },
+    { "name": "solana_get_signatures", "description": "Get recent transaction signatures for a Solana address" },
+    { "name": "cosmos_get_balance", "description": "Get native or all token balances on any Cosmos SDK chain" },
+    { "name": "cosmos_get_staking", "description": "Get staking delegations and rewards on any Cosmos chain" },
+    { "name": "cosmos_get_validators", "description": "Get validator list or details on any Cosmos chain" },
+    { "name": "cosmos_get_transaction", "description": "Get or search transactions on any Cosmos chain" },
+    { "name": "cosmos_get_governance", "description": "Get governance proposals and votes on any Cosmos chain" },
+    { "name": "cosmos_get_block", "description": "Get block by height or latest on any Cosmos chain" },
+    { "name": "sui_get_balance", "description": "Get SUI or token balance for a Sui address" },
+    { "name": "sui_get_object", "description": "Get Sui object details by ID or list owned objects" },
+    { "name": "sui_get_transaction", "description": "Get Sui transaction details by digest" },
+    { "name": "sui_get_coins", "description": "Get coin details with pagination for a Sui address" },
+    { "name": "near_query", "description": "Query Near Protocol: account info, view function calls, access keys, or contract state" },
+    { "name": "near_get_block", "description": "Get Near block by height, hash, or latest" },
+    { "name": "near_get_transaction", "description": "Get Near transaction status and receipts by hash" },
+    { "name": "resolve_domain", "description": "Resolve ENS (.eth) or Unstoppable Domains (.crypto, .nft, etc.) to a blockchain address" },
+    { "name": "compare_balances", "description": "Compare native token balances for an address across multiple chains (max 5)" },
+    { "name": "convert_units", "description": "Convert between blockchain denomination units (wei/ETH, lamports/SOL, MIST/SUI, yoctoNEAR/NEAR, SUN/TRX)" }
+  ],
+  "keywords": [
+    "blockchain", "crypto", "web3", "rpc", "ethereum", "eth", "solana", "sol",
+    "cosmos", "sui", "near", "tron", "trx", "evm", "defi", "token", "wallet",
+    "balance", "transaction", "staking", "governance", "nft", "smart contract",
+    "gas", "block", "stablecoin", "usdc", "usdt", "dai", "weth",
+    "ens", "unstoppable domains", "domain resolution",
+    "pocket-network", "decentralized rpc",
+    "arbitrum", "arb", "base", "polygon", "matic", "optimism", "op",
+    "avalanche", "avax", "bnb", "bsc", "fantom", "gnosis",
+    "linea", "scroll", "zksync", "blast", "mantle", "celo",
+    "moonbeam", "moonriver", "berachain", "bera", "hyperliquid",
+    "kaia", "kava", "metis", "boba", "fuse", "harmony", "oasys",
+    "ink", "iotex", "taiko", "sonic", "fraxtal", "opbnb", "unichain", "sei",
+    "osmosis", "akash", "juno", "stargaze", "pocket", "pokt",
+    "cheqd", "chihuahua", "fetch", "jackal", "persistence", "seda", "shentu",
+    "atomone", "router", "zklink"
+  ],
+  "compatibility": {
+    "claude_desktop": ">=1.0.0",
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}

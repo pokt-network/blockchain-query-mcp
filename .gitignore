@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.mcpb
+.DS_Store
+*.log
+Legacy/
+BlockchainQuery-Build-Brief.md
+.claude/

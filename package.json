@@ -1,0 +1,33 @@
+{
+  "name": "blockchain-query",
+  "version": "2.0.0",
+  "description": "Free blockchain data access across 60+ networks via Pocket Network",
+  "type": "module",
+  "main": "dist/server/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "pack": "npx @anthropic-ai/mcpb pack"
+  },
+  "author": "Pocket Network Foundation (https://pocket.network)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pokt-network/blockchain-query-mcp.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "js-sha3": "^0.9.3"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "^2.1.0",
+    "typescript": "^5.5.0",
+    "vitest": "^3.2.0",
+    "tsx": "^4.19.0"
+  }
+}
