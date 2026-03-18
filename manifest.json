@@ -2,7 +2,7 @@
   "manifest_version": "0.2",
   "name": "blockchain-query",
   "display_name": "BlockchainQuery",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Free blockchain data access across 60+ networks. Live lookups for balances, transactions, blocks, tokens, staking, governance, and domain resolution — powered by Pocket Network's decentralized RPC infrastructure. No API key required.",
   "long_description": "BlockchainQuery gives Claude real-time access to blockchain data across 60+ networks through Pocket Network's decentralized RPC gateway. Query balances, transactions, blocks, smart contracts, token metadata, staking positions, governance proposals, and domain resolution — all without API keys or authentication.\n\nSupported protocols: EVM (Ethereum, Arbitrum, Base, Polygon, Optimism, and 35+ more), Solana, Cosmos (Osmosis, Pocket, Akash, and 10+ more), Sui, Near, and Tron.\n\nProvided as a free public good by the Pocket Network Foundation.",
   "author": {
@@ -62,6 +62,11 @@
     { "name": "near_query", "description": "Query Near Protocol: account info, view function calls, access keys, or contract state" },
     { "name": "near_get_block", "description": "Get Near block by height, hash, or latest" },
     { "name": "near_get_transaction", "description": "Get Near transaction status and receipts by hash" },
+    { "name": "radix_get_network_status", "description": "Get Radix network status including current state version, epoch, round, and timestamp" },
+    { "name": "radix_get_network_config", "description": "Get Radix network configuration including version info and well-known addresses" },
+    { "name": "radix_get_balance", "description": "Get all fungible token balances for a Radix account address" },
+    { "name": "radix_get_transaction_status", "description": "Get the status of a Radix transaction by its intent hash" },
+    { "name": "radix_get_consensus_manager", "description": "Get Radix consensus manager state including validator set and epoch information" },
     { "name": "resolve_domain", "description": "Resolve ENS (.eth) or Unstoppable Domains (.crypto, .nft, etc.) to a blockchain address" },
     { "name": "compare_balances", "description": "Compare native token balances for an address across multiple chains (max 5)" },
     { "name": "convert_units", "description": "Convert between blockchain denomination units (wei/ETH, lamports/SOL, MIST/SUI, yoctoNEAR/NEAR, SUN/TRX)" }

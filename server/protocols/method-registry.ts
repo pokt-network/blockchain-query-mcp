@@ -61,6 +61,14 @@ const nearMethods: MethodDefinition[] = [
   { name: 'status', params: [], description: 'Get node status' },
 ];
 
+const radixMethods: MethodDefinition[] = [
+  { name: '/status/network-status', params: [], description: 'Get network status (state version, epoch, round, timestamp)' },
+  { name: '/status/network-configuration', params: [], description: 'Get network configuration (version info, well-known addresses)' },
+  { name: '/lts/state/account-all-fungible-resource-balances', params: [{ name: 'account_address', type: 'string', description: 'Radix account address', required: true }], description: 'Get all fungible token balances for an account' },
+  { name: '/lts/transaction/status', params: [{ name: 'intent_hash', type: 'string', description: 'Transaction intent hash', required: true }], description: 'Get transaction status' },
+  { name: '/state/consensus-manager', params: [], description: 'Get consensus manager state (validator set, epoch info)' },
+];
+
 const tronMethods: MethodDefinition[] = [
   ...evmMethods, // Tron supports EVM methods via compatibility layer
 ];
@@ -94,6 +102,12 @@ const PROTOCOL_REGISTRY: Record<string, ProtocolDefinition> = {
     methods: nearMethods,
     address_format: '^([a-z0-9._-]+\\.near|[a-f0-9]{64})$',
     units: { base: 'yoctoNEAR', display: 'NEAR', divisor: BigInt('1000000000000000000000000') },
+  },
+  radix: {
+    rpc_type: 'post-rest',
+    methods: radixMethods,
+    address_format: '^(account_|resource_|component_|package_|pool_|validator_)[a-z0-9_]+$',
+    units: { base: 'atto', display: 'XRD', divisor: BigInt('1000000000000000000') },
   },
   tron: {
     rpc_type: 'json-rpc',

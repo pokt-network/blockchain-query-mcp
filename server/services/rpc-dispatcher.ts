@@ -140,6 +140,42 @@ export async function dispatchRest(
 }
 
 // ---------------------------------------------------------------------------
+// POST-REST dispatcher (e.g. Radix Gateway API)
+// ---------------------------------------------------------------------------
+
+export async function dispatchPostRest(
+  url: string,
+  path: string,
+  body: unknown,
+  timeoutMs: number = RPC_TIMEOUT_MS,
+): Promise<unknown> {
+  const fullUrl = `${url}${path}`;
+  const init: RequestInit = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body ?? {}),
+  };
+
+  let response = await fetchWithTimeout(fullUrl, init, timeoutMs);
+
+  // Retry once on 429 or 503
+  if (response.status === 429 || response.status === 503) {
+    await sleep(1_000);
+    response = await fetchWithTimeout(fullUrl, init, timeoutMs);
+  }
+
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status} from ${fullUrl}`);
+  }
+
+  try {
+    return await response.json();
+  } catch {
+    throw new Error(`Failed to parse JSON response from ${fullUrl}`);
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Main dispatch entry point
 // ---------------------------------------------------------------------------
 
@@ -167,12 +203,12 @@ export async function dispatch(
     };
   }
 
-  let rpcType: 'json-rpc' | 'rest';
+  let rpcType: 'json-rpc' | 'rest' | 'post-rest';
   try {
     const def = getProtocolDefinition(chain.protocol);
     rpcType = def.rpc_type;
   } catch {
-    // Unknown protocol (e.g. Radix) — treat as inactive
+    // Unknown protocol — not supported
     return {
       success: false,
       error: `Protocol '${chain.protocol}' is not supported.`,
@@ -187,6 +223,8 @@ export async function dispatch(
     if (rpcType === 'json-rpc') {
       const paramsArray = Array.isArray(params) ? params : params != null ? [params] : [];
       data = await dispatchJsonRpc(chain.url, method, paramsArray, RPC_TIMEOUT_MS);
+    } else if (rpcType === 'post-rest') {
+      data = await dispatchPostRest(chain.url, method, params, RPC_TIMEOUT_MS);
     } else {
       const paramsObj =
         params !== null && typeof params === 'object' && !Array.isArray(params)

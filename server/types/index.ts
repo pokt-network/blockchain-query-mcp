@@ -24,7 +24,7 @@ export interface ChainRegistry {
 
 /** Protocol definition from the method registry */
 export interface ProtocolDefinition {
-  rpc_type: 'json-rpc' | 'rest';
+  rpc_type: 'json-rpc' | 'rest' | 'post-rest';
   methods: MethodDefinition[];
   address_format?: RegExp | string;
   units?: {

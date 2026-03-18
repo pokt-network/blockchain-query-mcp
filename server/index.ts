@@ -21,6 +21,7 @@ import { registerTools as registerSolanaTools } from './handlers/solana-handlers
 import { registerTools as registerCosmosTools } from './handlers/cosmos-handlers.js';
 import { registerTools as registerSuiTools } from './handlers/sui-handlers.js';
 import { registerTools as registerNearTools } from './handlers/near-handlers.js';
+import { registerTools as registerRadixTools } from './handlers/radix-handlers.js';
 import { registerTools as registerCrossChainTools } from './handlers/cross-chain-handlers.js';
 
 // ---------------------------------------------------------------------------
@@ -43,6 +44,7 @@ const allTools = [
   ...registerCosmosTools(),
   ...registerSuiTools(),
   ...registerNearTools(),
+  ...registerRadixTools(),
   ...registerCrossChainTools(),
 ];
 

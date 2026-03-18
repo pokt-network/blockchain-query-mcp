@@ -25,6 +25,7 @@ const PROBE_CONFIG: Record<string, { method: 'GET' | 'POST'; path?: string; rpc_
   cosmos: { method: 'GET', path: '/cosmos/base/tendermint/v1beta1/blocks/latest' },
   sui: { method: 'POST', rpc_method: 'sui_getLatestCheckpointSequenceNumber' },
   near: { method: 'POST', rpc_method: 'status' },
+  radix: { method: 'POST', path: '/status/network-status' },
 };
 
 export class ChainRegistryService {
@@ -117,10 +118,10 @@ export class ChainRegistryService {
           if (cfg.method === 'GET') {
             const url = `${chain.url}${cfg.path ?? ''}`;
             response = await fetch(url, { signal: controller.signal });
-          } else {
+          } else if (cfg.rpc_method) {
             const body = JSON.stringify({
               jsonrpc: '2.0',
-              method: cfg.rpc_method!,
+              method: cfg.rpc_method,
               params: [],
               id: 1,
             });
@@ -128,6 +129,15 @@ export class ChainRegistryService {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body,
+              signal: controller.signal,
+            });
+          } else {
+            // POST-REST probe (e.g. Radix Gateway)
+            const url = `${chain.url}${cfg.path ?? ''}`;
+            response = await fetch(url, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: '{}',
               signal: controller.signal,
             });
           }

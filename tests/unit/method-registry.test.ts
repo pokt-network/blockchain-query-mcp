@@ -46,14 +46,15 @@ describe('MethodRegistry', () => {
     expect(() => getProtocolDefinition('unknown-protocol')).toThrow('Unknown protocol');
   });
 
-  test('getRegisteredProtocols returns all 6 protocols', () => {
+  test('getRegisteredProtocols returns all 7 protocols', () => {
     const protocols = getRegisteredProtocols();
-    expect(protocols).toHaveLength(6);
+    expect(protocols).toHaveLength(7);
     expect(protocols).toContain('evm');
     expect(protocols).toContain('cosmos');
     expect(protocols).toContain('solana');
     expect(protocols).toContain('sui');
     expect(protocols).toContain('near');
+    expect(protocols).toContain('radix');
     expect(protocols).toContain('tron');
   });
 });

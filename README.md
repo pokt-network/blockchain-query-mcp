@@ -38,7 +38,7 @@ specific chain.
 
 Currently 60+ chains across EVM, Solana, Cosmos, Sui, Near, and Tron protocols.
 
-## Available Tools (32)
+## Available Tools (37)
 
 ### Discovery (2)
 | Tool | Description |
@@ -92,6 +92,15 @@ Currently 60+ chains across EVM, Solana, Cosmos, Sui, Near, and Tron protocols.
 | `near_query` | Query account info, view function calls, access keys, or contract state |
 | `near_get_block` | Get Near block by height, hash, or latest |
 | `near_get_transaction` | Get Near transaction status and receipts |
+
+### Radix (5)
+| Tool | Description |
+|------|-------------|
+| `radix_get_network_status` | Get network status including state version, epoch, round, and timestamp |
+| `radix_get_network_config` | Get network configuration including version info and well-known addresses |
+| `radix_get_balance` | Get all fungible token balances for a Radix account address |
+| `radix_get_transaction_status` | Get the status of a Radix transaction by its intent hash |
+| `radix_get_consensus_manager` | Get consensus manager state including validator set and epoch info |
 
 ### Cross-Chain (3)
 | Tool | Description |

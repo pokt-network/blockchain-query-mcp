@@ -5,6 +5,7 @@ import { registerTools as registerSolanaTools } from '../../server/handlers/sola
 import { registerTools as registerCosmosTools } from '../../server/handlers/cosmos-handlers.js';
 import { registerTools as registerSuiTools } from '../../server/handlers/sui-handlers.js';
 import { registerTools as registerNearTools } from '../../server/handlers/near-handlers.js';
+import { registerTools as registerRadixTools } from '../../server/handlers/radix-handlers.js';
 import { registerTools as registerCrossChainTools } from '../../server/handlers/cross-chain-handlers.js';
 import { registry } from '../../server/services/chain-registry.js';
 
@@ -16,6 +17,7 @@ const allTools = [
   ...registerCosmosTools(),
   ...registerSuiTools(),
   ...registerNearTools(),
+  ...registerRadixTools(),
   ...registerCrossChainTools(),
 ];
 
@@ -50,6 +52,11 @@ const EXPECTED_TOOL_NAMES = [
   'near_query',
   'near_get_block',
   'near_get_transaction',
+  'radix_get_network_status',
+  'radix_get_network_config',
+  'radix_get_balance',
+  'radix_get_transaction_status',
+  'radix_get_consensus_manager',
   'resolve_domain',
   'compare_balances',
   'convert_units',
@@ -59,13 +66,13 @@ beforeAll(async () => {
   await registry.init();
 }, 15000);
 
-describe('Smoke Tests — All 32 Tools', () => {
+describe('Smoke Tests — All 37 Tools', () => {
   // -------------------------------------------------------------------------
   // Registration completeness
   // -------------------------------------------------------------------------
 
-  test('all 32 tools appear in the combined tool listing', () => {
-    expect(allTools).toHaveLength(32);
+  test('all 37 tools appear in the combined tool listing', () => {
+    expect(allTools).toHaveLength(37);
   });
 
   test('all expected tool names are present in the listing', () => {
