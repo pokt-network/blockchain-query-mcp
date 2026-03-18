@@ -54,6 +54,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     name: t.definition.name,
     description: t.definition.description,
     inputSchema: t.definition.inputSchema,
+    annotations: { readOnlyHint: true },
   })),
 }));
 
