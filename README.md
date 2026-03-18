@@ -13,7 +13,7 @@ the Pocket Network Foundation. It gives Claude real-time access to blockchain
 data across 60+ networks — no API keys, no authentication, no cost.
 
 All queries are served through Pocket Network's decentralized RPC gateway at
-https://api.pocket.network, backed by thousands of independent node operators.
+https://api.pocket.network, backed by thousands of independently operated nodes.
 
 ## Installation
 
@@ -22,6 +22,12 @@ https://api.pocket.network, backed by thousands of independent node operators.
 3. Click "Install"
 
 That's it. No terminal, no configuration, no dependencies.
+
+## Updating
+
+1. Uninstall the current version from Claude Desktop
+2. Download the latest `BlockchainQuery.mcpb` from [Releases](https://github.com/pokt-network/blockchain-query-mcp/releases)
+3. Double-click to install the new version
 
 ## Supported Chains
 
