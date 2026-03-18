@@ -109,13 +109,59 @@ Currently 60+ chains across EVM, Solana, Cosmos, Sui, Near, and Tron protocols.
 | `compare_balances` | Compare native token balances across multiple chains (max 5) |
 | `convert_units` | Convert between blockchain denomination units |
 
-## Example Queries
+## Examples
 
-> "What's the ETH balance of vitalik.eth?"
-> "Show me the latest block on Solana"
-> "What are the staking rewards for cosmos1... on Osmosis?"
-> "Compare my balance across Ethereum, Arbitrum, and Base"
-> "Look up transaction 0xabc... on Polygon"
+### Example 1: Check an ENS wallet balance
+
+**User prompt:** "What's the ETH balance of vitalik.eth?"
+
+**Expected behavior:**
+- `resolve_domain` resolves the ENS name to an Ethereum address
+- `evm_get_balance` queries the Ethereum endpoint for native balance
+
+**Expected output:**
+Returns the resolved address and current ETH balance in human-readable units (e.g., "vitalik.eth resolves to 0xd8dA...6045. Current balance: 1,432.58 ETH").
+
+### Example 2: Get the latest Solana block
+
+**User prompt:** "Show me the latest block on Solana"
+
+**Expected behavior:**
+- `solana_get_block` fetches the most recent confirmed block from the Solana endpoint
+
+**Expected output:**
+Returns the block slot number, timestamp, transaction count, block hash, and parent slot. May include a summary of notable transactions if present.
+
+### Example 3: Check Cosmos staking rewards
+
+**User prompt:** "What are the staking rewards for cosmos1... on Osmosis?"
+
+**Expected behavior:**
+- `cosmos_get_staking` queries delegations and pending rewards for the provided address on the Osmosis chain
+
+**Expected output:**
+Returns a breakdown of staking delegations by validator, pending rewards in OSMO, and total staked amount.
+
+### Example 4: Compare balances across chains
+
+**User prompt:** "Compare my balance across Ethereum, Arbitrum, and Base"
+
+**Expected behavior:**
+- `compare_balances` queries native token balances on all three chains in parallel (max 5 chains per call)
+
+**Expected output:**
+Returns a comparison showing the native token balance on each chain (ETH on Ethereum, ETH on Arbitrum, ETH on Base) with the queried address.
+
+### Example 5: Look up a transaction on Polygon
+
+**User prompt:** "Look up transaction 0xabc... on Polygon"
+
+**Expected behavior:**
+- `evm_get_transaction` fetches the transaction details by hash from the Polygon endpoint
+- `evm_get_receipt` fetches the receipt including status, gas used, and event logs
+
+**Expected output:**
+Returns transaction details including sender, recipient, value transferred, gas used, success/failure status, and decoded event logs if applicable.
 
 ## Configuration (Optional)
 
