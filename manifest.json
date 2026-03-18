@@ -5,7 +5,7 @@
   ],
   "name": "blockchain-query",
   "display_name": "BlockchainQuery",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Free blockchain data access across 60+ networks. Live lookups for balances, transactions, blocks, tokens, staking, governance, and domain resolution — powered by Pocket Network's decentralized RPC infrastructure. No API key required.",
   "long_description": "BlockchainQuery gives Claude real-time access to blockchain data across 60+ networks through Pocket Network's decentralized RPC gateway. Query balances, transactions, blocks, smart contracts, token metadata, staking positions, governance proposals, and domain resolution — all without API keys or authentication.\n\nSupported protocols: EVM (Ethereum, Arbitrum, Base, Polygon, Optimism, and 35+ more), Solana, Cosmos (Osmosis, Pocket, Akash, and 10+ more), Sui, Near, and Tron.\n\nProvided as a free public good by the Pocket Network Foundation.",
   "author": {
